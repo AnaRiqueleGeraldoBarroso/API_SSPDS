@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BI - Ocorrências</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h2>Ocorrências por Cidade</h2>
+    <div id="grafico"></div>
+    <script>
+        var graphs = {{ graphJSON | safe }};
+        Plotly.newPlot('grafico', graphs.data, graphs.layout);
+    </script>
+</body>
+</html>

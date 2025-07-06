@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Criminosos Faccionados</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h2>Criminosos Faccionados vs Não Faccionados</h2>
+    <div id="grafico" style="width:80%; max-width:800px; height:500px;"></div>
+
+    <script>
+        // Recebe o objeto JSON direto, sem precisar usar JSON.parse
+        var graphs = {{ graphJSON | safe }};
+
+        console.log(graphs);  // opcional: só para debug
+
+        Plotly.newPlot('grafico', graphs.data, graphs.layout);
+    </script>
+</body>
+</html>

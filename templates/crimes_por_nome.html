@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BI - Ocorrências</title>
+    <title>Dashboard - Ocorrências por Tipo de Crime</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h2>Ocorrências por Cidade</h2>
+    <h2>Ocorrências por Tipo de Crime</h2>
     <div id="grafico"></div>
     <script>
-        var graphs = {{ graphJSON | safe }};
+        var graphs = JSON.parse('{{ graphJSON | safe }}');
         Plotly.newPlot('grafico', graphs.data, graphs.layout);
     </script>
 </body>

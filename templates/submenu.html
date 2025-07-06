@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h3>{% block title %} Tabela SubMenu {% endblock %}</h3>
-    {% for book in menus %}
-        <div class='book'>
-            <h4>#{{ book[0] }} - {{ book[1] }} - Ordem {{ book[2] }}</h4>
+    <h3>Submenu</h3>
+
+    {% for item in menus %}
+        {% set nome = item[1]|lower|trim %}
+        <div class="submenu-item">
+            <h4>{{ item[1] }}</h4>
+
+            {% if nome in rota_por_nome %}
+                <a href="{{ url_for(rota_por_nome[nome]) }}">Acessar {{ item[1] }}</a>
+            {% else %}
+                <span>Sem link definido para essa opção.</span>
+            {% endif %}
         </div>
     {% endfor %}
 {% endblock %}
